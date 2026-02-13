@@ -1,0 +1,20 @@
+<main class="container">
+  <h1>eSave Scaffolding</h1>
+  <p>
+    Angular frontend connected to Node backend for multi-provider document extraction.
+  </p>
+
+  <section class="panel">
+    <label for="provider">OCR Provider</label>
+    <select id="provider" [(ngModel)]="selectedProvider">
+      <option *ngFor="let provider of providers" [value]="provider">{{ provider }}</option>
+    </select>
+
+    <button type="button" (click)="runDemo()">Run extraction demo</button>
+  </section>
+
+  <section class="panel" *ngIf="lastResponse">
+    <h2>Response</h2>
+    <pre>{{ lastResponse | json }}</pre>
+  </section>
+</main>
